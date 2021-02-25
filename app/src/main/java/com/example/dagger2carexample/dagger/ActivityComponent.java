@@ -6,20 +6,24 @@ import javax.inject.Named;
 
 import dagger.BindsInstance;
 import dagger.Component;
+import dagger.Subcomponent;
 
-@Component(modules = {WheelsModule.class , PetrolEngineModule.class})
-public interface MyComponent {
+@PerActivity
+@Subcomponent(modules = {WheelsModule.class , PetrolEngineModule.class})
+public interface ActivityComponent {
 
     void inject(MainActivity mainActivity);
 
-    @Component.Builder
+    @Subcomponent.Builder
     interface Builder{
-        MyComponent build();
+        ActivityComponent build();
 
         @BindsInstance
         Builder horsePower(@Named("horse power") int horsePower);
 
         @BindsInstance
         Builder engineCapacity(@Named("engine capacity") int engineCapacity);
+
+      
     }
 }
