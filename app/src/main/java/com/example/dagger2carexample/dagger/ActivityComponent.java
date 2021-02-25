@@ -26,4 +26,9 @@ public interface ActivityComponent {
 
       
     }
+
+//    @Subcomponent.Factory
+//    interface  Factory{
+//
+//    }
 }
